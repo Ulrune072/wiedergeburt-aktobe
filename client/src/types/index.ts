@@ -14,3 +14,10 @@ export interface Partner {
   logoUrl: string;
   websiteUrl: string;
 }
+
+export interface GalleryImage {
+  id: number;
+  url: string;
+  caption?: string;
+  createdAt: string;
+}

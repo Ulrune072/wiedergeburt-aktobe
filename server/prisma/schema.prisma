@@ -15,3 +15,10 @@ model NewsArticle {
   images      String[] @default([])
   publishedAt DateTime @default(now())
 }
+
+model GalleryImage {
+  id        Int      @id @default(autoincrement())
+  url       String   @unique
+  caption   String?
+  createdAt DateTime @default(now())
+}

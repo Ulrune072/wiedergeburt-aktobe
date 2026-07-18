@@ -54,6 +54,33 @@ export async function uploadImages(files: File[]) {
   return res.json() as Promise<{ urls: string[] }>;
 }
 
+export async function fetchGallery() {
+  const res = await fetch(`${API_URL}/api/gallery`);
+  if (!res.ok) throw new Error('Failed to fetch gallery');
+  return res.json();
+}
+
+export async function addGalleryImage(url: string, caption?: string) {
+  const token = localStorage.getItem('adminToken');
+  const res = await fetch(`${API_URL}/api/gallery`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+    body: JSON.stringify({ url, caption }),
+  });
+  if (!res.ok) throw new Error('Failed to add image');
+  return res.json();
+}
+
+export async function deleteGalleryImage(id: number) {
+  const token = localStorage.getItem('adminToken');
+  const res = await fetch(`${API_URL}/api/gallery/${id}`, {
+    method: 'DELETE',
+    headers: { Authorization: `Bearer ${token}` },
+  });
+  if (!res.ok) throw new Error('Failed to delete image');
+  return res.json();
+}
+
 export async function fetchNewsById(id: number) {
   const res = await fetch(`${API_URL}/api/news/${id}`);
   if (!res.ok) throw new Error('Failed to fetch article');

@@ -14,6 +14,14 @@ router.post('/', requireAuth, async (req, res) => {
   const article = await prisma.newsArticle.create({
     data: { title, excerpt, content, images: images || [] },
   });
+
+  if (images?.length) {
+    await prisma.galleryImage.createMany({
+      data: images.map((url: string) => ({ url })),
+      skipDuplicates: true,
+    });
+  }
+
   res.json(article);
 });
 
@@ -23,6 +31,14 @@ router.put('/:id', requireAuth, async (req, res) => {
     where: { id: Number(req.params.id) },
     data: { title, excerpt, content, images: images || [] },
   });
+
+  if (images?.length) {
+    await prisma.galleryImage.createMany({
+      data: images.map((url: string) => ({ url })),
+      skipDuplicates: true,
+    });
+  }
+
   res.json(article);
 });
 

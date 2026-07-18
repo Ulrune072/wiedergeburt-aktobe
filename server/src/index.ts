@@ -4,6 +4,7 @@ import 'dotenv/config';
 import newsRouter from './routes/news.js';
 import authRouter from './routes/auth.js';
 import uploadRouter from './routes/upload.js';
+import galleryRouter from './routes/gallery.js';
 
 const app = express();
 app.use(cors());
@@ -16,6 +17,7 @@ app.get('/api/health', (_req, res) => {
 app.use('/api/news', newsRouter);
 app.use('/api/auth', authRouter);
 app.use('/api/upload', uploadRouter);
+app.use('/api/gallery', galleryRouter);
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

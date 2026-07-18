@@ -50,7 +50,10 @@ export default function NewsDetail() {
         </div>
       )}
 
-      <p className="text-ink/80 leading-relaxed mt-6 whitespace-pre-wrap">{article.content}</p>
+      <div
+        className="text-ink/80 leading-relaxed mt-6 prose max-w-none"
+        dangerouslySetInnerHTML={{ __html: article.content }}
+      />
     </div>
   );
 }
