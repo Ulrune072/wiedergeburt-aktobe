@@ -12,6 +12,6 @@ model NewsArticle {
   title       String
   excerpt     String
   content     String
-  imageUrl    String?
+  images      String[] @default([])
   publishedAt DateTime @default(now())
 }

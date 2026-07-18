@@ -40,16 +40,22 @@ export async function deleteNews(id: number) {
   return res.json();
 }
 
-export async function uploadImage(file: File) {
+export async function uploadImages(files: File[]) {
   const token = localStorage.getItem('adminToken');
   const formData = new FormData();
-  formData.append('file', file);
+  files.forEach((f) => formData.append('files', f));
 
   const res = await fetch(`${API_URL}/api/upload`, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}` },
     body: formData,
   });
-  if (!res.ok) throw new Error('Failed to upload image');
-  return res.json() as Promise<{ url: string }>;
+  if (!res.ok) throw new Error('Failed to upload images');
+  return res.json() as Promise<{ urls: string[] }>;
+}
+
+export async function fetchNewsById(id: number) {
+  const res = await fetch(`${API_URL}/api/news/${id}`);
+  if (!res.ok) throw new Error('Failed to fetch article');
+  return res.json();
 }

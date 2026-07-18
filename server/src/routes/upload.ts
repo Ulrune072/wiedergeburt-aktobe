@@ -6,15 +6,21 @@ import { requireAuth } from '../middleware/auth.js';
 const router = Router();
 const upload = multer({ storage: multer.memoryStorage() });
 
-router.post('/', requireAuth, upload.single('file'), async (req, res) => {
-  if (!req.file) return res.status(400).json({ error: 'No file provided' });
+router.post('/', requireAuth, upload.array('files', 10), async (req, res) => {
+  const files = req.files as Express.Multer.File[];
+  if (!files || files.length === 0) return res.status(400).json({ error: 'No files provided' });
 
-  const blob = await put(req.file.originalname, req.file.buffer, {
-    access: 'public',
-    addRandomSuffix: true,
-  });
+  const urls = await Promise.all(
+    files.map(async (file) => {
+      const blob = await put(file.originalname, file.buffer, {
+        access: 'public',
+        addRandomSuffix: true,
+      });
+      return blob.url;
+    })
+  );
 
-  res.json({ url: blob.url });
+  res.json({ urls });
 });
 
 export default router;

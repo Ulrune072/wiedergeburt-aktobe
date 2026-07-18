@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { fetchNews, createNews, updateNews, deleteNews, uploadImage } from '../../lib/api';
+import { fetchNews, createNews, updateNews, deleteNews, uploadImages } from '../../lib/api';
 import type { NewsArticle } from '../../types';
 
 export default function AdminDashboard() {
   const [news, setNews] = useState<NewsArticle[]>([]);
   const [editingId, setEditingId] = useState<number | null>(null);
-  const [form, setForm] = useState({ title: '', excerpt: '', content: '', imageUrl: '' });
+  const [form, setForm] = useState({ title: '', excerpt: '', content: '', images: [] as string[] });
   const navigate = useNavigate();
   const [uploading, setUploading] = useState(false);
 
@@ -30,7 +30,7 @@ export default function AdminDashboard() {
     } else {
       await createNews(form);
     }
-    setForm({ title: '', excerpt: '', content: '', imageUrl: '' });
+    setForm({ title: '', excerpt: '', content: '', images: [] });
     setEditingId(null);
     loadNews();
   }
@@ -41,7 +41,7 @@ export default function AdminDashboard() {
       title: article.title,
       excerpt: article.excerpt,
       content: article.content,
-      imageUrl: article.imageUrl || '',
+      images: article.images,
     });
   }
 
@@ -90,13 +90,14 @@ export default function AdminDashboard() {
         <input
           type="file"
           accept="image/*"
+          multiple
           onChange={async (e) => {
-            const file = e.target.files?.[0];
-            if (!file) return;
+            const files = Array.from(e.target.files || []);
+            if (files.length === 0) return;
             setUploading(true);
             try {
-              const { url } = await uploadImage(file);
-              setForm((f) => ({ ...f, imageUrl: url }));
+              const { urls } = await uploadImages(files);
+              setForm((f) => ({ ...f, images: [...f.images, ...urls] }));
             } catch (err) {
               console.error(err);
             } finally {
@@ -104,12 +105,16 @@ export default function AdminDashboard() {
             }
           }}
         />
-  {uploading && <span className="text-sm text-gray-500">Загрузка...</span>}
-  {form.imageUrl && <img src={form.imageUrl} className="h-24 object-contain" />}
-</div>
+        {uploading && <span className="text-sm text-gray-500">Загрузка...</span>}
+        <div className="flex gap-2 flex-wrap">
+          {form.images.map((url) => (
+            <img key={url} src={url} className="h-16 object-contain border rounded" />
+          ))}
+        </div>
         <button type="submit" className="bg-black text-white rounded p-2">
           {editingId ? 'Сохранить изменения' : 'Добавить новость'}
         </button>
+        </div>
       </form>
 
       <div className="flex flex-col gap-3">

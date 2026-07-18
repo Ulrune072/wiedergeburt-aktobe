@@ -11,6 +11,7 @@ import HistoryOrg from './pages/history/HistoryOrg';
 import Contacts from './pages/Contacts';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import NewsDetail from './pages/NewsDetails';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/news/:id" element={<NewsDetail />} />
         </Routes>
       </main>
       <Footer />
