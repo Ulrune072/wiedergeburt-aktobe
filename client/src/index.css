@@ -2,10 +2,10 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-blue: #2C5F8A;
+  --color-blue: #042855;
   --color-blue-dark: #063670;
   --color-blue-light: #D5E0EB;
-  --color-navy: #16232F;
+  --color-navy: #063670;
   --color-gold: #C08A28;
   --color-ink: #1B2733;
 
