@@ -5,8 +5,18 @@ import { fetchNews } from '../lib/api';
 import type { NewsArticle, Partner } from '../types';
 
 const partners: Partner[] = [
-  { id: 1, name: 'Wiedergeburt.kz', logoUrl: '/partner1.png', websiteUrl: 'http://www.wiedergeburt.kz' },
-  { id: 2, name: 'Wiedergeburt Pavlodar', logoUrl: '/partner2.png', websiteUrl: 'http://www.wiedergeburt-pavlodar.kz' },
+  {
+    id: 1,
+    name: 'Wiedergeburt Kasachstan',
+    logoUrl: 'http://wiedergeburt.kz/wp-content/uploads/2020/06/logo-official.jpg',
+    websiteUrl: 'https://wiedergeburt-kasachstan.de',
+  },
+  {
+    id: 2,
+    name: 'DAZ — Deutsche Allgemeine Zeitung',
+    logoUrl: 'https://daz.asia/wp-content/uploads/2018/06/daz_logo_again.png',
+    websiteUrl: 'https://daz.asia',
+  },
 ];
 
 export default function Home() {
@@ -48,9 +58,9 @@ export default function Home() {
       </section>
 
       {/* Partners */}
-      <section className="bg-blue-light/30 py-12">
-        <div className="max-w-6xl mx-auto px-4">
-          <h2 className="text-2xl font-black mb-6 text-center">Партнёры</h2>
+      <section className="bg-blue-light/30 py-0.5">
+        <div className="max-w-4xl mx-auto px-2">
+          <h2 className="text-2xl font-black mb-4 text-center">Партнёры</h2>
           <PartnersSection partners={partners} />
         </div>
       </section>
