@@ -6,7 +6,7 @@
     "esModuleInterop": true,
     "strict": true,
     "outDir": "dist",
-    "rootDir": "src",
     "verbatimModuleSyntax": true
-  }
+  },
+  "exclude": ["prisma/seed.ts", "prisma.config.ts", "node_modules", "dist"]
 }
