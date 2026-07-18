@@ -9,7 +9,7 @@ export default function PartnersSection({ partners }: { partners: Partner[] }) {
           href={p.websiteUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="border rounded-lg p-4 hover:shadow-md transition flex items-center justify-center"
+          className="border border-brass/40 rounded-md p-4 hover:border-brass hover:shadow-sm transition flex items-center justify-center bg-white/60"
         >
           <img src={p.logoUrl} alt={p.name} className="h-16 object-contain" />
         </a>

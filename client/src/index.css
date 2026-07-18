@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+@theme {
+  --color-blue: #2C5F8A;
+  --color-blue-light: #D5E0EB;
+  --color-navy: #16232F;
+  --color-gold: #C08A28;
+  --color-ink: #1B2733;
+
+  --font-body: "PT Sans", sans-serif;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-body);
+  font-weight: 700;
+}
