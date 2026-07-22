@@ -21,7 +21,6 @@ export default function Header() {
         <nav className="hidden md:flex items-center gap-1 text-sm font-bold uppercase tracking-wide">
           <Link to="/about" className="px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition">О нас</Link>
           <Link to="/activities" className="px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition">Деятельность</Link>
-          <Link to="/projects" className="px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition">Проекты</Link>
           <Link to="/gallery" className="px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition">Галерея</Link>
           <div className="relative group">
             <span className="px-3 py-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition cursor-pointer inline-block">История</span>
