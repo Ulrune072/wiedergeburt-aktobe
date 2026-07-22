@@ -21,6 +21,13 @@ export default function Contacts() {
           <h3 className="font-black text-ink mb-1">Email</h3>
           <p className="text-sm text-ink/70">wiedergeburt-aktobe@rambler.ru</p>
         </div>
+        <div className="border border-ink/10 rounded-xl p-5 bg-white">
+          <h3 className="font-black text-ink mb-1">Социальные сети</h3>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://ok.ru/profile/559698692832">Одноклассники</a>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/knm_jungesterne.aktobe/">Instagram Клуба Немецкой Молодёжи "Junge Sterne"</a>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/teatr_denkmal/">Instagram Немецкого Образцового Театра "Denkmal"</a>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/wunderkind.aktobe/">Instagram Немецкого Центра Дошкольного Дополнительного Образования "Wunderkind"</a>
+        </div>
       </section>
     </div>
   );
