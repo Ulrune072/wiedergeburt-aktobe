@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/logo.png'
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,10 +9,13 @@ export default function Header() {
     <header className="sticky top-0 bg-blue z-20 shadow-md">
       <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2.5" onClick={() => setMenuOpen(false)}>
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold to-gold/70 flex items-center justify-center shadow-md">
-            <span className="text-navy font-black text-base">W</span>
-          </div>
-          <span className="font-black text-white text-lg tracking-tight">Возрождение</span>
+        <img 
+          src={logo} 
+          alt="Company Logo" 
+          // h-8 sets a fixed height, w-auto keeps the aspect ratio
+          className="h-12 w-12 rounded-full object-cover border-2 border-blue-500 shadow-sm" 
+        />
+          <span className="font-black text-white text-lg tracking-tight">Актюбинское областное общество немцев "Возрождение"</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 text-sm font-bold uppercase tracking-wide">
