@@ -24,8 +24,10 @@ export default function Contacts() {
         <div className="border border-ink/10 rounded-xl p-5 bg-white">
           <h3 className="font-black text-ink mb-1">Социальные сети</h3>
           <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://ok.ru/profile/559698692832">Одноклассники</a>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/wiedergeburt_aktobe/">Instagram Актюбинского областного общества немцев "Возрождение"</a>
           <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/knm_jungesterne.aktobe/">Instagram Клуба Немецкой Молодёжи "Junge Sterne"</a>
           <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/teatr_denkmal/">Instagram Немецкого Образцового Театра "Denkmal"</a>
+          <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/chorveilchen/">Instagram Немецого Образцового хора "Veilchen"</a>
           <a className="text-sm text-ink/70 hover:text-navy hover:underline cursor-pointer transition-colors" style={{ display: 'block' }} href="https://www.instagram.com/wunderkind.aktobe/">Instagram Немецкого Центра Дошкольного Дополнительного Образования "Wunderkind"</a>
         </div>
       </section>

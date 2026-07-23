@@ -35,9 +35,8 @@ export default function Home() {
       {/* Hero */}
       <section className="bg-blue-dark text-white">
         <div className="max-w-6xl mx-auto px-4 py-16 flex flex-col items-start gap-4">
-          <span className="text-gold text-sm font-bold uppercase tracking-widest">Актюбинское областное общество</span>
           <h1 className="text-3xl md:text-4xl font-black leading-tight max-w-2xl">
-            Немецкое общество «Возрождение» — сохраняя язык, культуру и традиции
+            Общество немцев «Возрождение» — сохраняя язык, культуру и традиции
           </h1>
           <p className="text-white/70 max-w-xl">
             Курсы немецкого языка, культурные мероприятия и поддержка немецкой диаспоры в Актобе.
